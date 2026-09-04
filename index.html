@@ -1,0 +1,446 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f6f2e9" />
+    <title>Conecta Mobile | Celulares e Manutenção</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="brand-mark logo-frame"
+            ><img src="logo.png" alt="Logo da loja Conecta Mobile" /></span
+          ><span
+            ><strong>Conecta Mobile</strong
+            ><small>celulares & manutenção</small></span
+          >
+        </div>
+        <nav class="nav-list" aria-label="Navegação principal">
+          <button class="nav-item active" data-view="overview">
+            <span class="nav-icon">⌂</span> Visão geral
+          </button>
+          <button class="nav-item" data-view="products">
+            <span class="nav-icon">▦</span> Produtos
+            <b id="productNavCount">6</b>
+          </button>
+          <button class="nav-item" data-view="promotions">
+            <span class="nav-icon">%</span> Promoções
+            <b id="promoNavCount">2</b>
+          </button>
+          <button class="nav-item" data-view="settings">
+            <span class="nav-icon">⚙</span> Configurações
+          </button>
+        </nav>
+        <nav class="public-nav" aria-label="Menu público">
+          <span class="public-nav-title">MENU</span>
+          <button class="public-nav-item active" data-public-section="home">
+            Home
+          </button>
+          <button class="public-nav-item" data-public-section="about">
+            Sobre Nós
+          </button>
+          <button class="public-nav-item" data-public-section="services">
+            Serviços
+          </button>
+          <button class="public-nav-item" data-public-section="store">
+            Loja
+          </button>
+          <button class="public-nav-item" data-public-section="contact">
+            Contato
+          </button>
+        </nav>
+        <div class="sidebar-bottom">
+          <div class="help-card">
+            <span>◌</span>
+            <div>
+              <strong>Precisa de ajuda?</strong
+              ><small>Veja como organizar seu catálogo</small>
+            </div>
+          </div>
+          <button class="store-link" data-public-view>
+            <span>↗</span> Ver catálogo público
+          </button>
+          <button class="store-link" id="logoutButton">
+            <span>↪</span> Sair do painel
+          </button>
+          <div class="profile">
+            <span class="avatar">MA</span
+            ><span
+              ><strong>Marina Alves</strong><small>Administradora</small></span
+            ><span class="dots">•••</span>
+          </div>
+        </div>
+      </aside>
+      <main class="main-content">
+        <header class="topbar">
+          <div class="top-brand">
+            <span class="brand-mark logo-frame"
+              ><img src="logo.png" alt="Logo da loja Conecta Mobile"
+            /></span>
+            <div>
+              <strong>Conecta Mobile</strong
+              ><small>Celulares & manutenção</small>
+            </div>
+          </div>
+          <div class="breadcrumb">
+            <span>Conecta Mobile</span><i>/</i
+            ><strong id="pageCrumb">Visão geral</strong>
+          </div>
+          <div class="top-actions">
+            <button class="icon-button" title="Notificações">♧<em></em></button
+            ><button
+              class="outline-button"
+              id="publicStoreButton"
+              data-public-view
+            >
+              ↗ &nbsp;Ver catálogo público</button
+            ><button class="primary-button" id="headerAddButton">
+              ＋ &nbsp;Cadastrar produto
+            </button>
+          </div>
+        </header>
+        <div class="content-wrap">
+          <section class="view active" id="overviewView">
+            <div class="page-heading">
+              <div>
+                <p class="eyebrow">PAINEL DA LOJA</p>
+                <h1>Bom dia, Marina <span>✦</span></h1>
+                <p class="subtitle">
+                  Gerencie celulares, acessórios e serviços de manutenção.
+                </p>
+              </div>
+              <div class="date-chip">⌖ &nbsp; Loja no Google Maps</div>
+            </div>
+            <div class="stats-grid">
+              <div class="stat-card accent">
+                <div class="stat-top">
+                  <span>Visualizações do catálogo</span
+                  ><span class="stat-icon">◉</span>
+                </div>
+                <strong>2.847</strong
+                ><small class="positive"
+                  >↗ 18,6% <span>vs. mês anterior</span></small
+                >
+                <div class="sparkline bars">
+                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+                  ><i></i><i></i><i></i>
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-top">
+                  <span>Cliques em produtos</span
+                  ><span class="stat-icon pale">⌁</span>
+                </div>
+                <strong>634</strong
+                ><small class="positive"
+                  >↗ 9,2% <span>vs. mês anterior</span></small
+                >
+                <div class="sparkline line"></div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-top">
+                  <span>Produtos ativos</span
+                  ><span class="stat-icon pale">▦</span>
+                </div>
+                <strong id="activeStat">24</strong
+                ><small class="neutral">3 adicionados este mês</small>
+                <div class="progress"><span></span></div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-top">
+                  <span>Promoções ativas</span
+                  ><span class="stat-icon pale">%</span>
+                </div>
+                <strong id="promoStat">2</strong
+                ><small class="neutral">Ofertas em destaque</small>
+                <div class="event-dots">
+                  <i></i><i></i><i></i><i></i><i></i>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard-grid">
+              <section class="panel catalog-panel">
+                <div class="panel-header">
+                  <div>
+                    <h2>Produtos em destaque</h2>
+                    <p>Os favoritos da sua vitrine</p>
+                  </div>
+                  <button class="text-button" data-view-link="products">
+                    Ver todos <span>→</span>
+                  </button>
+                </div>
+                <div class="featured-products" id="featuredProducts"></div>
+              </section>
+              <section class="panel quick-panel">
+                <div class="panel-header">
+                  <div>
+                    <h2>Ações rápidas</h2>
+                    <p>Atualize sua vitrine em poucos passos</p>
+                  </div>
+                </div>
+                <button class="quick-action" data-modal="product">
+                  <span class="quick-icon peach">＋</span
+                  ><span
+                    ><strong>Adicionar produto</strong
+                    ><small>Inclua um novo item no catálogo</small></span
+                  ><b>→</b></button
+                ><button class="quick-action" data-view-link="promotions">
+                  <span class="quick-icon yellow">%</span
+                  ><span
+                    ><strong>Adicionar promoção</strong
+                    ><small>Escolha um produto para uma oferta</small></span
+                  ><b>→</b>
+                </button>
+              </section>
+            </div>
+            <section class="panel banner-panel">
+              <div class="banner-carousel" id="bannerCarousel">
+                <div id="bannerSlides"></div>
+                <button
+                  class="carousel-arrow previous"
+                  id="bannerPrevious"
+                  aria-label="Banner anterior"
+                >
+                  ‹</button
+                ><button
+                  class="carousel-arrow next"
+                  id="bannerNext"
+                  aria-label="Próximo banner"
+                >
+                  ›
+                </button>
+                <div
+                  class="carousel-dots"
+                  id="carouselDots"
+                  aria-label="Selecionar banner"
+                ></div>
+                <div class="banner-meta">
+                  <span>Exibido no catálogo público</span
+                  ><strong>Atualização automática</strong>
+                </div>
+              </div>
+              <div class="banner-manager">
+                <div>
+                  <strong>Meus banners</strong
+                  ><small
+                    >O primeiro banner é fixo. Adicione quantos quiser.</small
+                  >
+                </div>
+                <button class="primary-button" data-modal="banner">
+                  ＋ Adicionar banner
+                </button>
+                <div class="banner-manager-list" id="bannerManagerList"></div>
+              </div>
+            </section>
+          </section>
+          <section class="view" id="productsView">
+            <div class="page-heading compact">
+              <div>
+                <p class="eyebrow">CATÁLOGO DA LOJA</p>
+                <h1>Produtos e serviços</h1>
+                <p class="subtitle">
+                  Cadastre celulares, acessórios e serviços de manutenção.
+                </p>
+              </div>
+              <button class="primary-button" data-modal="product">
+                ＋ &nbsp;Cadastrar produto
+              </button>
+            </div>
+            <div class="toolbar">
+              <div class="search-box">
+                ⌕<input
+                  id="productSearch"
+                  placeholder="Buscar produto ou serviço..."
+                />
+              </div>
+              <select id="categoryFilter">
+                <option value="all">Todas as categorias</option>
+                <option>Celulares</option>
+                <option>Acessórios</option>
+                <option>Manutenção</option>
+              </select>
+            </div>
+            <div class="product-grid" id="productGrid"></div>
+          </section>
+          <section class="view" id="promotionsView">
+            <div class="page-heading compact">
+              <div>
+                <p class="eyebrow">DESTAQUES</p>
+                <h1>Promoções</h1>
+                <p class="subtitle">
+                  Crie ofertas que merecem aparecer primeiro.
+                </p>
+              </div>
+              <button class="primary-button" data-modal="promotion">
+                ＋ &nbsp;Nova promoção
+              </button>
+            </div>
+            <div class="promotion-list" id="promotionList"></div>
+          </section>
+          <section class="view" id="settingsView">
+            <div class="page-heading compact">
+              <div>
+                <p class="eyebrow">IDENTIDADE DA LOJA</p>
+                <h1>Configurações</h1>
+                <p class="subtitle">Atualize contato, localização e redes sociais.</p>
+              </div>
+            </div>
+            <form class="settings-panel panel" id="settingsForm">
+              <label>Endereço<input name="address" placeholder="Rua, número, bairro e cidade"></label>
+              <label>Link da localização<input name="mapLink" type="url" placeholder="https://maps.google.com/... "></label>
+              <label>Telefone<input name="phone" placeholder="(31) 99596-1377"></label>
+              <label>Instagram<input name="instagram" placeholder="https://instagram.com/sua-loja"></label>
+              <label>Facebook<input name="facebook" placeholder="https://facebook.com/sua-loja"></label>
+              <button class="primary-button" type="submit">Salvar configurações <span>→</span></button>
+            </form>
+            <div class="panel category-settings">
+              <div class="panel-header"><div><h2>Categorias</h2><p>Crie categorias para organizar os produtos.</p></div></div>
+              <form class="category-form" id="categoryForm"><input name="category" placeholder="Nova categoria"><button class="primary-button" type="submit">＋ Adicionar</button></form>
+              <div class="category-list" id="categoryList"></div>
+            </div>
+          </section>
+          <section class="view client-view" id="clientView">
+            <div class="client-header">
+              <div class="client-logo">
+                <span class="brand-mark logo-frame"
+                  ><img src="logo.png" alt="Logo da loja Conecta Mobile"
+                /></span>
+                <div>
+                  <strong>Conecta Mobile</strong
+                  ><small>Celulares & manutenção</small>
+                </div>
+              </div>
+              <button class="client-admin-link" data-view="overview">
+                Área administrativa
+              </button>
+            </div>
+            <div class="client-carousel" id="clientCarousel">
+              <div id="clientBannerSlides"></div>
+              <button
+                class="client-carousel-arrow previous"
+                id="clientBannerPrevious"
+                aria-label="Banner anterior"
+              >
+                ‹</button
+              ><button
+                class="client-carousel-arrow next"
+                id="clientBannerNext"
+                aria-label="Próximo banner"
+              >
+                ›
+              </button>
+              <div class="client-carousel-dots" id="clientBannerDots"></div>
+            </div>
+            <div class="client-toolbar">
+              <div>
+                <span class="eyebrow">CATÁLOGO ONLINE</span>
+                <h2>Encontre o que precisa</h2>
+                <p>Produtos e serviços de confiança para o seu celular.</p>
+              </div>
+              <div class="client-search">
+                ⌕<input
+                  id="clientSearch"
+                  placeholder="Buscar produto ou serviço..."
+                />
+              </div>
+            </div>
+            <div class="client-categories">
+              <button class="category-chip active" data-client-category="all">
+                Todos</button
+              ><button class="category-chip" data-client-category="Celulares">
+                Celulares</button
+              ><button class="category-chip" data-client-category="Acessórios">
+                Acessórios</button
+              ><button class="category-chip" data-client-category="Manutenção">
+                Manutenção
+              </button>
+            </div>
+            <div class="client-product-grid" id="clientProductGrid"></div>
+            <div class="client-contact">
+              <strong>Precisa de ajuda?</strong
+              ><span
+                >Fale com a Conecta Mobile pelo WhatsApp ou visite nossa
+                loja.</span
+              ><a href="tel:+5511998765432">☎ (11) 99876-5432</a
+              ><button class="client-map-button" id="clientMapButton">
+                ⌖ Como chegar
+              </button>
+            </div>
+          </section>
+        </div>
+      </main>
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <span class="brand-mark logo-frame"
+            ><img src="logo.png" alt="Logo da loja Conecta Mobile"
+          /></span>
+          <div>
+            <strong>Conecta Mobile</strong
+            ><small>Celulares, acessórios e manutenção</small>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-label">FALE COM A LOJA</span
+          ><a id="footerPhone" href="tel:+5531995961377">☎ (31) 99596-1377</a
+          ><a href="mailto:contato@conectamobile.com.br"
+            >✉ contato@conectamobile.com.br</a
+          >
+          <a id="footerInstagram" target="_blank" rel="noreferrer"></a>
+          <a id="footerFacebook" target="_blank" rel="noreferrer"></a>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-label">ENDEREÇO</span
+          ><span id="footerAddress">Rua Eduardo Cozac, 119, Loja B, Centro de Sarzedo</span
+          ><a id="footerMapLink"
+            href="https://www.google.com/maps/search/?api=1&query=Rua+Eduardo+Cozac+119+Sarzedo"
+            target="_blank"
+            rel="noreferrer"
+            >⌖ Abrir no Google Maps</a
+          >
+        </div>
+        <div class="footer-hours">
+          <span class="footer-label">HORÁRIO</span
+          ><span>Seg a sex · 9h às 18h</span><span>Sábados · 9h às 13h</span>
+        </div>
+      </footer>
+    </div>
+    <div class="login-backdrop open" id="loginBackdrop">
+      <form class="login-card" id="loginForm">
+        <p class="eyebrow">ÁREA ADMINISTRATIVA</p>
+        <h1>Acesso ao painel</h1>
+        <p class="subtitle">Entre para gerenciar seu catálogo.</p>
+        <label>Usuário<input name="username" autocomplete="username" value="admin"></label>
+        <label>Senha<input name="password" type="password" autocomplete="current-password" placeholder="admin123"></label>
+        <button class="primary-button full" type="submit">Entrar <span>→</span></button>
+        <small class="login-hint">Acesso local: admin / admin123</small>
+      </form>
+    </div>
+    <div class="modal-backdrop" id="modalBackdrop">
+      <div class="modal" role="dialog" aria-modal="true">
+        <button class="modal-close" id="modalClose">×</button>
+        <p class="eyebrow" id="modalEyebrow">NOVO CADASTRO</p>
+        <h2 id="modalTitle">Adicionar produto</h2>
+        <p class="modal-subtitle" id="modalSubtitle">
+          Deixe sua vitrine sempre atualizada.
+        </p>
+        <form id="catalogForm">
+          <div class="form-fields" id="formFields"></div>
+          <button class="primary-button full" type="submit">
+            Salvar cadastro <span>→</span>
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="toast" id="toast">Cadastro salvo com sucesso.</div>
+    <script src="app.js"></script>
+  </body>
+</html>
