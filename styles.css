@@ -2339,6 +2339,10 @@ body {
 .modal-backdrop.open {
   display: flex;
 }
+.modal-backdrop.product-modal-open .modal {
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+}
 .modal {
   background: var(--paper);
   width: min(450px, 100%);
@@ -2528,12 +2532,47 @@ body {
 .login-card .subtitle {
   margin: -5px 0 8px;
 }
+.login-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: 0;
+  background: transparent;
+  color: #849087;
+  font-size: 24px;
+  cursor: pointer;
+}
+.login-card {
+  position: relative;
+}
+.login-link {
+  border: 0;
+  background: transparent;
+  color: #5b8064;
+  font: 600 11px "DM Sans";
+  cursor: pointer;
+  text-align: center;
+}
+.recovery-fields {
+  display: grid;
+  gap: 13px;
+}
+.recovery-fields[hidden] {
+  display: none;
+}
 .login-hint {
   color: #929d95;
   text-align: center;
   font-size: 10px;
 }
 @media (max-width: 640px) {
+  .modal-backdrop.product-modal-open {
+    align-items: flex-start;
+    padding: 12px;
+  }
+  .modal-backdrop.product-modal-open .modal {
+    max-height: calc(100vh - 24px);
+  }
   .settings-panel {
     grid-template-columns: 1fr;
   }

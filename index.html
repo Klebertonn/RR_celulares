@@ -421,7 +421,23 @@
         <label>Usuário<input name="username" autocomplete="username" value="admin"></label>
         <label>Senha<input name="password" type="password" autocomplete="current-password" placeholder="admin123"></label>
         <button class="primary-button full" type="submit">Entrar <span>→</span></button>
-        <small class="login-hint">Acesso local: admin / admin123</small>
+        <button class="login-link" id="forgotAccessButton" type="button">Esqueci meu acesso</button>
+        <small class="login-hint">Acesso local protegido neste navegador.</small>
+      </form>
+    </div>
+    <div class="login-backdrop" id="recoveryBackdrop">
+      <form class="login-card" id="recoveryForm">
+        <button class="login-close" id="recoveryClose" type="button" aria-label="Fechar">×</button>
+        <p class="eyebrow">RECUPERAÇÃO DE ACESSO</p>
+        <h1>Redefinir acesso</h1>
+        <p class="subtitle">Informe o e-mail cadastrado para criar um novo usuário e senha.</p>
+        <label>E-mail<input name="email" type="email" required placeholder="admin@exemplo.com"></label>
+        <div class="recovery-fields" id="recoveryFields" hidden>
+          <label>Novo usuário<input name="newUsername" autocomplete="username" placeholder="novo usuário"></label>
+          <label>Nova senha<input name="newPassword" type="password" autocomplete="new-password" placeholder="nova senha"></label>
+        </div>
+        <button class="primary-button full" type="submit">Continuar <span>→</span></button>
+        <button class="login-link" id="backToLoginButton" type="button">Voltar para o login</button>
       </form>
     </div>
     <div class="modal-backdrop" id="modalBackdrop">

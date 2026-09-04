@@ -62,6 +62,12 @@ let storeSettings =
     instagram: "",
     facebook: "",
   };
+let adminAccount =
+  JSON.parse(localStorage.getItem("casaAuroraAdminAccount") || "null") || {
+    username: "admin",
+    password: "admin123",
+    email: "admin@rrcelulares.com.br",
+  };
 let banners = JSON.parse(
   localStorage.getItem("casaAuroraBanners") || "null",
 ) || [
@@ -109,6 +115,7 @@ const save = () => {
   localStorage.setItem("casaAuroraPromotions", JSON.stringify(promotions));
   localStorage.setItem("casaAuroraCategories", JSON.stringify(categories));
   localStorage.setItem("casaAuroraSettings", JSON.stringify(storeSettings));
+  localStorage.setItem("casaAuroraAdminAccount", JSON.stringify(adminAccount));
 };
 function productCard(product, compact = false) {
   const location = product.location
@@ -318,6 +325,7 @@ function openModal(type, itemIndex = null) {
   $("#modalTitle").textContent = banner ? "Editar bloco de slide" : config.title;
   $("#modalSubtitle").textContent = config.subtitle;
   $("#formFields").innerHTML = config.fields;
+  $("#modalBackdrop").classList.toggle("product-modal-open", type === "product");
   if (type === "product") {
     $("#productCategoryField").innerHTML = categories.map((category) => `<option>${category}</option>`).join("");
   }
@@ -342,6 +350,7 @@ function openModal(type, itemIndex = null) {
 }
 function closeModal() {
   $("#modalBackdrop").classList.remove("open");
+  $("#modalBackdrop").classList.remove("product-modal-open");
 }
 function setupImageUpload() {
   const fileInput = $('input[name="imageFile"]');
@@ -498,12 +507,52 @@ $("#categoryForm").onsubmit = (e) => {
 $("#loginForm").onsubmit = (e) => {
   e.preventDefault();
   const data = Object.fromEntries(new FormData(e.target));
-  if (data.username !== "admin" || data.password !== "admin123") {
+  if (data.username !== adminAccount.username || data.password !== adminAccount.password) {
     showToast("Usuário ou senha inválidos.");
     return;
   }
   sessionStorage.setItem("casaAuroraAdminSession", "authenticated");
   $("#loginBackdrop").classList.remove("open");
+};
+$("#forgotAccessButton").onclick = () => {
+  $("#loginBackdrop").classList.remove("open");
+  $("#recoveryBackdrop").classList.add("open");
+  $("#recoveryFields").hidden = true;
+  $("#recoveryForm button[type=submit]").textContent = "Continuar →";
+};
+$("#backToLoginButton").onclick = () => {
+  $("#recoveryBackdrop").classList.remove("open");
+  $("#loginBackdrop").classList.add("open");
+};
+$("#recoveryClose").onclick = () => {
+  $("#recoveryBackdrop").classList.remove("open");
+  $("#loginBackdrop").classList.add("open");
+};
+$("#recoveryForm").onsubmit = (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const data = Object.fromEntries(new FormData(form));
+  if (data.email.toLowerCase() !== adminAccount.email.toLowerCase()) {
+    showToast("E-mail não encontrado.");
+    return;
+  }
+  if (form.elements.newUsername.value && form.elements.newPassword.value) {
+    adminAccount = {
+      ...adminAccount,
+      username: form.elements.newUsername.value.trim(),
+      password: form.elements.newPassword.value,
+    };
+    save();
+    form.reset();
+    $("#recoveryFields").hidden = true;
+    $("#recoveryBackdrop").classList.remove("open");
+    $("#loginBackdrop").classList.add("open");
+    showToast("Acesso atualizado. Faça login novamente.");
+    return;
+  }
+  $("#recoveryFields").hidden = false;
+  $("#recoveryForm button[type=submit]").textContent = "Salvar novo acesso →";
+  form.elements.newUsername.focus();
 };
 $("#logoutButton").onclick = () => {
   sessionStorage.removeItem("casaAuroraAdminSession");
