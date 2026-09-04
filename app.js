@@ -558,6 +558,17 @@ $("#logoutButton").onclick = () => {
   sessionStorage.removeItem("casaAuroraAdminSession");
   $("#loginBackdrop").classList.add("open");
 };
+const mobileMenuToggle = $("#mobileMenuToggle");
+const mobileSidebar = document.querySelector(".sidebar");
+mobileMenuToggle.onclick = () => {
+  const isOpen = mobileSidebar.classList.toggle("menu-open");
+  mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+};
+document.addEventListener("click", (event) => {
+  if (!event.target.closest(".mobile-navigation [data-view], .mobile-navigation [data-public-section]")) return;
+  mobileSidebar.classList.remove("menu-open");
+  mobileMenuToggle.setAttribute("aria-expanded", "false");
+});
 function showToast(message) {
   $("#toast").textContent = message;
   $("#toast").classList.add("show");

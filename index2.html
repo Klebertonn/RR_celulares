@@ -883,14 +883,139 @@
           height: 180px;
         }
       }
+
+      .mobile-menu-toggle {
+        display: none;
+        border: 1px solid #3b4650;
+        border-radius: 5px;
+        padding: 8px 10px;
+        background: #171e29;
+        color: #fff;
+        font-size: 18px;
+        line-height: 1;
+        cursor: pointer;
+      }
+      @media (max-width: 800px) {
+        body {
+          min-width: 0;
+          overflow-x: hidden;
+        }
+        .browser {
+          width: 100%;
+          max-width: 100%;
+          margin: 0;
+          border-radius: 0;
+          overflow: visible;
+        }
+        .layout {
+          width: 100%;
+          min-width: 0;
+        }
+        aside {
+          position: relative;
+          top: auto;
+          width: 100%;
+          height: auto;
+          min-height: 48px;
+          overflow: visible;
+          border-right: 0;
+          border-bottom: 1px solid #333;
+        }
+        .menu-title {
+          width: 100%;
+          min-height: 48px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px 14px;
+        }
+        .mobile-menu-toggle {
+          display: inline-flex;
+          flex: 0 0 auto;
+          min-width: 42px;
+          min-height: 36px;
+          align-items: center;
+          justify-content: center;
+        }
+        aside nav {
+          display: none;
+          float: none;
+          width: 100%;
+          max-width: none;
+          overflow: hidden;
+          background: #10151d;
+        }
+        aside.nav-open nav {
+          display: block;
+        }
+        aside nav a {
+          display: block;
+          width: 100%;
+          padding: 12px 16px;
+          text-align: left;
+          white-space: normal;
+        }
+        header {
+          width: 100%;
+          min-height: 108px;
+          height: auto;
+          padding: 12px 10px;
+          overflow: visible;
+        }
+        .banner-content {
+          width: 100%;
+          max-width: 100%;
+          min-width: 0;
+          transform: none;
+          margin: 0;
+          gap: 4px;
+        }
+        .logo-container {
+          width: clamp(48px, 16vw, 65px);
+          height: clamp(48px, 16vw, 65px);
+        }
+        .text-container {
+          min-width: 0;
+          flex: 1;
+        }
+        .text-main {
+          font-size: clamp(25px, 9vw, 42px);
+        }
+        .text-sub {
+          max-width: 100%;
+          font-size: clamp(8px, 2.6vw, 13px);
+          line-height: 1.15;
+        }
+        .icon-container {
+          width: clamp(52px, 18vw, 80px);
+          height: clamp(48px, 16vw, 65px);
+          margin-left: 4px;
+        }
+        .hero-wrap {
+          width: 100%;
+          padding: 12px 30px;
+          border-radius: 0;
+        }
+      }
+      @media (max-width: 420px) {
+        .text-sub {
+          white-space: normal;
+        }
+        .hero-wrap {
+          padding: 10px 26px;
+        }
+      }
     </style>
   </head>
   <body>
     <div class="browser">
       <div class="layout">
         <aside>
-          <div class="menu-title">MENU</div>
-          <nav>
+          <div class="menu-title">
+            <span>MENU</span>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-expanded="false" aria-controls="mainNav">☰</button>
+          </div>
+          <nav id="mainNav">
             <a class="active" href="#inicio">Home</a
             ><a href="#sobre">Sobre Nós</a><a href="#servicos">Serviços</a
             ><a href="#loja">Loja</a><a href="#contato">Contato</a>
@@ -1144,6 +1269,12 @@
       window.addEventListener("resize", () => goSlide(slide));
       syncCatalog();
       syncBanners();
+      const mobileMenuToggle = document.getElementById("mobileMenuToggle");
+      const mobileAside = document.querySelector("aside");
+      mobileMenuToggle.addEventListener("click", () => {
+        const isOpen = mobileAside.classList.toggle("nav-open");
+        mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
+      });
       function cart(name) {
         const toast = document.getElementById("toast");
         toast.textContent = `${name} adicionado ao carrinho.`;
