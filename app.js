@@ -389,7 +389,7 @@ document.addEventListener("click", (e) => {
   const link = e.target.closest("[data-view-link]");
   if (link) showView(link.dataset.viewLink);
   const publicView = e.target.closest("[data-public-view]");
-  if (publicView) window.location.href = "cliente.html";
+  if (publicView) window.location.href = "index2.html";
   const category = e.target.closest("[data-client-category]");
   if (category) {
     document
