@@ -3,1292 +3,467 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Celulares | Conserto em celulares e acessórios</title>
-    <meta
-      name="description"
-      content="Conserto profissional de celulares, acessórios e orçamento rápido."
+    <meta name="theme-color" content="#f6f2e9" />
+    <title>RR Celulares | Celulares e Manutenção</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+      rel="stylesheet"
     />
-    <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      :root {
-        --orange: #f58220;
-        --orange2: #ff9d24;
-        --dark: #10151d;
-        --dark2: #1d2730;
-        --text: #fff;
-        --muted: #b9c0c7;
-      }
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-        background: #555;
-        color: var(--text);
-        min-height: 100vh;
-      }
-      .browser {
-        width: min(1024px, calc(100% - 28px));
-        margin: 20px auto;
-        border-radius: 14px 14px 5px 5px;
-        overflow: hidden;
-        box-shadow: 0 4px 22px #0008;
-        background: var(--dark);
-      }
-      .layout {
-        display: grid;
-        grid-template-columns: 108px 1fr;
-        min-height: 700px;
-        background: linear-gradient(145deg, #2b333a, #11161e);
-      }
-      aside {
-        background: linear-gradient(#0c1119, #151b25);
-        border-right: 1px solid #252d36;
-        z-index: 2;
-      }
-      .menu-title {
-        font-weight: 800;
-        font-size: 15px;
-        padding: 19px 14px;
-        background: #10151d;
-      }
-      nav a {
-        display: block;
-        color: #fff;
-        text-decoration: none;
-        font-size: 12px;
-        padding: 11px 14px;
-        border-left: 3px solid transparent;
-        transition: 0.2s;
-      }
-      nav a:hover,
-      nav a.active {
-        background: #171e29;
-        border-left-color: var(--orange);
-        color: #ffad55;
-      }
-      main {
-        min-width: 0;
-      }
-      header {
-        height: auto;
-        min-height: 130px;
-        padding: 20px 30px;
-        background: #1c1d1d linear-gradient(180deg, #252626 0%, #151616 100%);
-        border-bottom: 2px solid #2a2a2a;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.8);
-      }
-      .banner-content {
-        width: 100%;
-        max-width: 1100px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .logo-container {
-        width: 90px;
-        height: 90px;
-        flex-shrink: 0;
-      }
-      .logo-svg,
-      .icon-svg {
-        width: 100%;
-        height: 100%;
-      }
-      .text-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .text-main {
-        color: #fff;
-        font: italic 900 64px/0.9 'Arial Black', Arial, sans-serif;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-      }
-      .text-sub {
-        color: #fff;
-        font: 700 19px/1.2 Arial, sans-serif;
-        letter-spacing: 0.5px;
-        margin-top: 6px;
-        text-transform: uppercase;
-      }
-      .icon-container {
-        width: 110px;
-        height: 90px;
-        flex-shrink: 0;
-        margin-left: 20px;
-      }
-      .icon-container svg {
-        width: 100%;
-        height: 100%;
-      }
-      .hero-wrap {
-        position: relative;
-        overflow: hidden;
-        background: #202932;
-      }
-      .hero {
-        display: flex;
-        width: 100%;
-        height: 300px;
-        gap: 12px;
-        transition: transform 0.4s ease;
-      }
-      .slide {
-        min-width: calc(100% - 12px);
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        align-items: flex-end;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-      }
-      .slide:nth-child(1) {
-        background-image:
-          linear-gradient(90deg, #202932aa, #20293233),
-          url("https://images.unsplash.com/photo-1592750475338-74b7b21085ab?auto=format&fit=crop&w=1000&q=80");
-      }
-      .slide:nth-child(2) {
-        background-image:
-          linear-gradient(90deg, #202932aa, #20293233),
-          url("https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=1000&q=80");
-      }
-      .slide:nth-child(3) {
-        background-image:
-          linear-gradient(90deg, #202932aa, #20293233),
-          url("https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&w=1000&q=80");
-      }
-      .slide:nth-child(4) {
-        background-image:
-          linear-gradient(90deg, #202932aa, #20293233),
-          url("https://images.unsplash.com/photo-1580983218765-f663bec07b37?auto=format&fit=crop&w=1000&q=80");
-      }
-      .slide:nth-child(5) {
-        background-image:
-          linear-gradient(90deg, #202932aa, #20293233),
-          url("https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=1000&q=80");
-      }
-      .caption {
-        width: 100%;
-        text-align: center;
-        padding: 12px 14px;
-        background: linear-gradient(90deg, #ed7717, #ff9c27cc);
-        font-weight: 800;
-        font-size: 18px;
-        line-height: 1.05;
-      }
-      .hero-control {
-        position: absolute;
-        right: 14px;
-        bottom: 37px;
-        width: 52px;
-        height: 52px;
-        border: 2px solid #e0e0e0;
-        border-radius: 50%;
-        background: #171d24dd;
-        color: #fff;
-        font-size: 34px;
-        line-height: 43px;
-        text-align: center;
-        cursor: pointer;
-        box-shadow: 0 2px 5px #0008;
-      }
-      .dots {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        padding: 10px 0 7px;
-        background: #202932;
-      }
-      .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        background: #eee;
-        border: 1px solid #bbb;
-        cursor: pointer;
-      }
-      .dot.active {
-        background: var(--orange);
-        border-color: #d66d14;
-      }
-      .content {
-        padding: 16px 18px 10px;
-        background: linear-gradient(#273139, #1e272f);
-      }
-      .section-title {
-        font-size: 14px;
-        font-weight: 900;
-        margin-bottom: 9px;
-      }
-      .products {
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 9px;
-      }
-      .card {
-        background: #f7f7f7;
-        color: #222;
-        border-radius: 5px;
-        padding: 4px;
-        box-shadow: 0 2px 5px #0007;
-        overflow: hidden;
-        min-width: 0;
-      }
-      .product-image {
-        height: 92px;
-        border-radius: 3px;
-        background: #fff;
-        display: block;
-        width: 100%;
-        object-fit: cover;
-      }
-      .title {
-        font-size: 9px;
-        font-weight: 700;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        margin: 5px 3px 1px;
-      }
-      .price {
-        font-size: 11px;
-        font-weight: 800;
-        margin: 0 3px 4px;
-      }
-      .catalog-description {
-        color: #666;
-        font-size: 10px;
-        line-height: 1.35;
-        margin: 0 3px 8px;
-      }
-      .whatsapp-link {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        margin-top: 8px;
-        padding: 8px 11px;
-        border-radius: 5px;
-        background: #25d366;
-        color: #fff;
-        font-size: 11px;
-        font-weight: 700;
-        text-decoration: none;
-      }
-      .whatsapp-link:hover {
-        background: #1fba59;
-      }
-      .whatsapp-icon {
-        width: 17px;
-        height: 17px;
-        fill: currentColor;
-      }
-      .floating-actions {
-        position: fixed;
-        right: 18px;
-        top: 50%;
-        z-index: 20;
-        display: flex;
-        flex-direction: column;
-        gap: 9px;
-        transform: translateY(-50%);
-      }
-      .floating-action {
-        display: grid;
-        width: 44px;
-        height: 44px;
-        place-items: center;
-        border-radius: 50%;
-        color: #fff;
-        font-size: 20px;
-        text-decoration: none;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
-        transition: transform 0.2s ease;
-      }
-      .floating-action:hover {
-        transform: scale(1.08);
-      }
-      .floating-action.whatsapp {
-        background: #25d366;
-      }
-      .floating-action.phone {
-        background: #f58220;
-      }
-      .floating-action.location {
-        background: #3f6c82;
-      }
-      @media (max-width: 560px) {
-        .floating-actions {
-          right: 10px;
-          gap: 7px;
-        }
-        .floating-action {
-          width: 38px;
-          height: 38px;
-          font-size: 17px;
-        }
-      }
-      .buy {
-        display: block;
-        width: 100%;
-        border: 0;
-        border-radius: 3px;
-        background: var(--orange);
-        color: #fff;
-        font-size: 8px;
-        font-weight: 700;
-        padding: 5px 2px;
-        cursor: pointer;
-      }
-      .buy:hover {
-        background: #ff9a2e;
-      }
-      .brands {
-        margin: 12px -18px -10px;
-        padding: 9px 18px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        background: linear-gradient(#f57d18, #ff941d);
-        color: #fff;
-        font-weight: 900;
-        gap: 12px;
-        flex-wrap: wrap;
-      }
-      .brand {
-        font-size: 16px;
-        text-shadow: 1px 1px #0008;
-        opacity: 0.95;
-      }
-      .brand.apple {
-        font-size: 25px;
-      }
-      .brand.samsung {
-        font-size: 12px;
-        letter-spacing: 1px;
-      }
-      footer {
-        background: linear-gradient(#151b23, #0c1118);
-        display: grid;
-        grid-template-columns: 1.2fr 1fr 1.4fr 1fr;
-        gap: 25px;
-        padding: 12px 45px 14px;
-        font-size: 10px;
-        color: #fff;
-      }
-      footer h4 {
-        font-size: 10px;
-        margin-bottom: 5px;
-      }
-      footer p,
-      footer a {
-        color: #fff;
-        text-decoration: none;
-        line-height: 1.5;
-      }
-      .toast {
-        position: fixed;
-        right: 20px;
-        bottom: 20px;
-        background: #161d26;
-        color: #fff;
-        border-left: 4px solid var(--orange);
-        padding: 12px 16px;
-        border-radius: 5px;
-        box-shadow: 0 3px 12px #0008;
-        transform: translateY(100px);
-        opacity: 0;
-        transition: 0.3s;
-        font-size: 13px;
-      }
-      .toast.show {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      @media (max-width: 800px) {
-        .browser {
-          width: 100%;
-          margin: 0;
-          border-radius: 0;
-        }
-        .layout {
-          display: block;
-          min-height: 0;
-        }
-        aside {
-          position: sticky;
-          top: 0;
-          border-right: 0;
-          border-bottom: 1px solid #333;
-        }
-        .menu-title {
-          display: inline-block;
-          padding: 13px 18px;
-        }
-        nav {
-          display: flex;
-          float: right;
-          max-width: calc(100% - 90px);
-          overflow-x: auto;
-        }
-        nav a {
-          padding: 14px 8px;
-          font-size: 10px;
-          white-space: nowrap;
-        }
-        header {
-          height: 90px;
-        }
-        .logo {
-          width: min(360px, 92%);
-        }
-        .hero {
-          height: 150px;
-        }
-        .caption {
-          font-size: 14px;
-        }
-        .products {
-          grid-template-columns: repeat(3, 1fr);
-        }
-        .brands {
-          margin-left: -18px;
-          margin-right: -18px;
-        }
-        footer {
-          padding: 14px 18px;
-        }
-      }
-      @media (max-width: 560px) {
-        .menu-title {
-          font-size: 12px;
-          padding: 12px 13px;
-        }
-        nav a {
-          padding: 13px 6px;
-          font-size: 9px;
-        }
-        .layout {
-          background: #202932;
-        }
-        header {
-          height: 82px;
-        }
-        .logo {
-          height: 70px;
-        }
-        .hero {
-          height: 170px;
-        }
-        .caption {
-          font-size: 13px;
-        }
-        .hero-control {
-          width: 43px;
-          height: 43px;
-          font-size: 27px;
-          line-height: 34px;
-          right: 9px;
-          bottom: 35px;
-        }
-        .dots {
-          padding: 8px 0 6px;
-        }
-        .content {
-          padding: 14px 12px 10px;
-        }
-        .section-title {
-          font-size: 13px;
-        }
-        .products {
-          grid-template-columns: repeat(2, 1fr);
-          gap: 8px;
-        }
-        .product-image {
-          height: 105px;
-        }
-        .brands {
-          margin-left: -12px;
-          margin-right: -12px;
-          padding: 10px 8px;
-          gap: 9px;
-        }
-        .brand {
-          font-size: 12px;
-        }
-        .brand.apple {
-          font-size: 21px;
-        }
-        .brand.samsung {
-          font-size: 10px;
-        }
-        footer {
-          grid-template-columns: 1fr;
-          gap: 12px;
-          padding: 16px 14px;
-        }
-        .card {
-          padding: 5px;
-        }
-        .buy {
-          min-height: 27px;
-        }
-      }
-      @media (max-width: 360px) {
-        nav a:nth-child(2),
-        nav a:nth-child(3) {
-          display: none;
-        }
-        .logo {
-          height: 62px;
-        }
-        .hero {
-          height: 155px;
-        }
-        .product-image {
-          height: 92px;
-        }
-        .title {
-          font-size: 8px;
-        }
-        .price {
-          font-size: 10px;
-        }
-      }
-      header {
-        height: 110px;
-        padding: 0;
-        overflow: hidden;
-      }
-      .logo {
-        display: block;
-        width: 100%;
-        max-width: none;
-        height: 110px;
-        padding: 0;
-        object-fit: cover;
-        object-position: center;
-      }
-      @media (max-width: 800px) {
-        header {
-          height: 110px;
-        }
-        .logo {
-          height: 110px;
-          width: 100%;
-          padding: 0;
-          object-fit: cover;
-        }
-      }
-      .browser {
-        width: 100%;
-        max-width: none;
-        margin: 0;
-        border-radius: 0;
-        box-shadow: none;
-      }
-      .layout {
-        width: 100%;
-        min-height: 100vh;
-      }
-      .logo {
-        max-width: none;
-      }
-      @media (min-width: 801px) {
-        .layout {
-          min-height: 100vh;
-        }
-        .content {
-          min-height: 280px;
-        }
-        .products {
-          max-width: 1500px;
-          margin: 0 auto;
-        }
-        .brands {
-          margin-top: 18px;
-        }
-      }
-
-      header {
-        height: 90px;
-      }
-      .logo {
-        width: 100%;
-        height: 80px;
-        object-fit: contain;
-      }
-      .hero-wrap,
-      .hero {
-        width: 100%;
-      }
-      .hero {
-        height: 220px;
-        gap: 12px;
-      }
-      .slide {
-        flex: 0 0 calc(100% - 12px);
-        min-width: calc(100% - 12px);
-      }
-      .caption {
-        min-height: 52px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
-      .content {
-        padding: 20px;
-      }
-      .products {
-        align-items: stretch;
-      }
-      .card {
-        display: flex;
-        flex-direction: column;
-        min-height: 205px;
-      }
-      .product-image {
-        height: 120px;
-        flex-shrink: 0;
-      }
-      .title {
-        min-height: 20px;
-      }
-      .price {
-        min-height: 17px;
-      }
-      .brands {
-        min-height: 66px;
-      }
-
-      @media (max-width: 800px) {
-        body {
-          overflow-x: hidden;
-        }
-        .layout {
-          display: block;
-        }
-        aside {
-          position: sticky;
-          top: 0;
-          z-index: 3;
-        }
-        nav {
-          display: flex;
-          float: none;
-          width: 100%;
-          max-width: none;
-        }
-        nav a {
-          flex: 1;
-          text-align: center;
-          white-space: nowrap;
-        }
-        header {
-          height: 90px;
-        }
-        .logo {
-          height: 80px;
-        }
-        .hero {
-          height: 200px;
-        }
-        .products {
-          grid-template-columns: repeat(3, 1fr);
-        }
-        footer {
-          grid-template-columns: repeat(2, 1fr);
-          padding: 16px 20px;
-        }
-      }
-
-      @media (max-width: 560px) {
-        .content {
-          padding: 16px 12px;
-        }
-        .hero {
-          height: 180px;
-        }
-        .products {
-          grid-template-columns: repeat(2, 1fr);
-        }
-        .product-image {
-          height: 120px;
-        }
-        .card {
-          min-height: 205px;
-        }
-        footer {
-          grid-template-columns: 1fr;
-        }
-      }
-
-      @media (max-width: 420px) {
-        .menu-title {
-          display: block;
-          text-align: center;
-        }
-        nav a {
-          padding: 11px 3px;
-          font-size: 9px;
-        }
-        header,
-        .logo {
-          height: 82px;
-        }
-        .hero {
-          height: 160px;
-          gap: 12px;
-        }
-        .slide {
-          flex-basis: calc(100% - 12px);
-          min-width: calc(100% - 12px);
-        }
-        .caption {
-          min-height: 44px;
-          padding: 8px;
-          font-size: 12px;
-        }
-        .hero-control {
-          right: 8px;
-          bottom: 31px;
-          width: 42px;
-          height: 42px;
-          font-size: 26px;
-          line-height: 34px;
-        }
-        .products {
-          gap: 7px;
-        }
-        .card {
-          min-height: 205px;
-          padding: 4px;
-        }
-        .product-image {
-          height: 105px;
-        }
-        .buy {
-          font-size: 7px;
-          padding: 6px 1px;
-        }
-      }
-
-      .banner-content {
-        gap: 0;
-      }
-      .hero-wrap {
-        width: 100%;
-        padding: 20px 40px;
-        border-radius: 12px;
-        background: #1e1e1e;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-      }
-      .hero {
-        height: auto;
-        display: flex;
-        gap: 20px;
-        transition: transform 0.5s ease-in-out;
-      }
-      .slide {
-        flex: 0 0 calc(33.333% - 14px);
-        min-width: calc(33.333% - 14px);
-        height: 220px;
-        align-items: flex-end;
-        border-radius: 10px;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      }
-      .slide:hover {
-        transform: translateY(-5px);
-      }
-      .caption {
-        min-height: 0;
-        padding: 15px;
-        background: rgba(0, 0, 0, 0.7);
-        font-size: 15px;
-        line-height: 1.2;
-      }
-      .hero-control {
-        top: 50%;
-        right: 5px;
-        bottom: auto;
-        transform: translateY(-50%);
-        width: 35px;
-        height: 35px;
-        border: 0;
-        background: rgba(0, 0, 0, 0.7);
-        font-size: 18px;
-        line-height: 30px;
-        z-index: 10;
-      }
-      .hero-control.previous {
-        left: 5px;
-        right: auto;
-      }
-      .dots {
-        display: none;
-      }
-      @media (max-width: 768px) {
-        header {
-          min-height: 100px;
-          padding: 14px 12px;
-        }
-        .banner-content {
-          max-width: 100%;
-        }
-        .text-main {
-          font-size: 42px;
-        }
-        .text-sub {
-          font-size: 13px;
-        }
-        .logo-container {
-          width: 65px;
-          height: 65px;
-        }
-        .icon-container {
-          width: 80px;
-          height: 65px;
-          margin-left: 10px;
-        }
-        .hero-wrap {
-          padding: 15px 35px;
-        }
-        .slide {
-          flex-basis: calc(50% - 10px);
-          min-width: calc(50% - 10px);
-        }
-      }
-      @media (max-width: 480px) {
-        .banner-content {
-          transform: scale(0.78);
-          transform-origin: center;
-          width: 128%;
-          margin-left: -14%;
-        }
-        .hero-wrap {
-          padding: 12px 30px;
-        }
-        .slide {
-          flex-basis: 100%;
-          min-width: 100%;
-          height: 180px;
-        }
-      }
-
-      .mobile-menu-toggle {
-        display: none;
-        border: 1px solid #3b4650;
-        border-radius: 5px;
-        padding: 8px 10px;
-        background: #171e29;
-        color: #fff;
-        font-size: 18px;
-        line-height: 1;
-        cursor: pointer;
-      }
-      @media (max-width: 800px) {
-        body {
-          min-width: 0;
-          overflow-x: hidden;
-        }
-        .browser {
-          width: 100%;
-          max-width: 100%;
-          margin: 0;
-          border-radius: 0;
-          overflow: visible;
-        }
-        .layout {
-          width: 100%;
-          min-width: 0;
-        }
-        aside {
-          position: relative;
-          top: auto;
-          width: 100%;
-          height: auto;
-          min-height: 48px;
-          overflow: visible;
-          border-right: 0;
-          border-bottom: 1px solid #333;
-        }
-        .menu-title {
-          width: 100%;
-          min-height: 48px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 10px 14px;
-        }
-        .mobile-menu-toggle {
-          display: inline-flex;
-          flex: 0 0 auto;
-          min-width: 42px;
-          min-height: 36px;
-          align-items: center;
-          justify-content: center;
-        }
-        aside nav {
-          display: none;
-          float: none;
-          width: 100%;
-          max-width: none;
-          overflow: hidden;
-          background: #10151d;
-        }
-        aside.nav-open nav {
-          display: block;
-        }
-        aside nav a {
-          display: block;
-          width: 100%;
-          padding: 12px 16px;
-          text-align: left;
-          white-space: normal;
-        }
-        header {
-          width: 100%;
-          min-height: 108px;
-          height: auto;
-          padding: 12px 10px;
-          overflow: visible;
-        }
-        .banner-content {
-          width: 100%;
-          max-width: 100%;
-          min-width: 0;
-          transform: none;
-          margin: 0;
-          gap: 4px;
-        }
-        .logo-container {
-          width: clamp(48px, 16vw, 65px);
-          height: clamp(48px, 16vw, 65px);
-        }
-        .text-container {
-          min-width: 0;
-          flex: 1;
-        }
-        .text-main {
-          font-size: clamp(25px, 9vw, 42px);
-        }
-        .text-sub {
-          max-width: 100%;
-          font-size: clamp(8px, 2.6vw, 13px);
-          line-height: 1.15;
-        }
-        .icon-container {
-          width: clamp(52px, 18vw, 80px);
-          height: clamp(48px, 16vw, 65px);
-          margin-left: 4px;
-        }
-        .hero-wrap {
-          width: 100%;
-          padding: 12px 30px;
-          border-radius: 0;
-        }
-      }
-      @media (max-width: 420px) {
-        .text-sub {
-          white-space: normal;
-        }
-        .hero-wrap {
-          padding: 10px 26px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="browser">
-      <div class="layout">
-        <aside>
-          <div class="menu-title">
-            <span>MENU</span>
-            <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-expanded="false" aria-controls="mainNav">☰</button>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <span class="mobile-menu-label">MENU</span>
+          <span class="brand-mark logo-frame"
+            ><img src="logo.png.jpg" alt="Logo da loja RR Celulares" /></span
+          ><span
+            ><strong>RR Celulares</strong
+            ><small>celulares & manutenção</small></span
+          >
+          <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-expanded="false" aria-controls="adminNavigation">☰</button>
+        </div>
+        <div class="mobile-navigation" id="adminNavigation">
+        <nav class="nav-list" aria-label="Navegação principal">
+          <button class="nav-item active" data-view="overview">
+            <span class="nav-icon">⌂</span> Visão geral
+          </button>
+          <button class="nav-item" data-view="products">
+            <span class="nav-icon">▦</span> Produtos
+            <b id="productNavCount">6</b>
+          </button>
+          <button class="nav-item" data-view="promotions">
+            <span class="nav-icon">%</span> Promoções
+            <b id="promoNavCount">2</b>
+          </button>
+          <button class="nav-item" data-view="settings">
+            <span class="nav-icon">⚙</span> Configurações
+          </button>
+        </nav>
+        <nav class="public-nav" aria-label="Menu público">
+          <span class="public-nav-title">MENU</span>
+          <button class="public-nav-item active" data-public-section="home">
+            Home
+          </button>
+          <button class="public-nav-item" data-public-section="about">
+            Sobre Nós
+          </button>
+          <button class="public-nav-item" data-public-section="services">
+            Serviços
+          </button>
+          <button class="public-nav-item" data-public-section="store">
+            Loja
+          </button>
+          <button class="public-nav-item" data-public-section="contact">
+            Contato
+          </button>
+          <button class="mobile-public-link" data-public-view>
+            ↗ Ver catálogo público
+          </button>
+        </nav>
+        </div>
+        <div class="sidebar-bottom">
+          <div class="help-card">
+            <span>◌</span>
+            <div>
+              <strong>Precisa de ajuda?</strong
+              ><small>Veja como organizar seu catálogo</small>
+            </div>
           </div>
-          <nav id="mainNav">
-            <a class="active" href="#inicio">Home</a
-            ><a href="#sobre">Sobre Nós</a><a href="#servicos">Serviços</a
-            ><a href="#loja">Loja</a><a href="#contato">Contato</a>
-          </nav>
-        </aside>
-        <main>
-          <header id="inicio">
-            <div class="banner-content">
-              <div class="logo-container" aria-label="Logo R Celulares">
-                <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M35 15h30c15 0 23 10 18 25-4 12-15 18-28 18H45l20 34H48L30 60h-8L10 92h15l7-20 3-57Z" fill="#D9731E"/>
-                  <path d="M20 10h35c17 0 25 10 21 26-4 12-16 18-30 18H32L18 85H5l15-65V10Zm13 12-6 22h15c10 0 16-4 18-11 2-7-3-11-13-11H33Z" fill="#FFF"/>
-                </svg>
+          <button class="store-link" data-public-view>
+            <span>↗</span> Ver catálogo público
+          </button>
+          <button class="store-link" id="logoutButton">
+            <span>↪</span> Sair do painel
+          </button>
+          <div class="profile">
+            <span class="avatar">MA</span
+            ><span
+              ><strong>Adim</strong><small>Administradora</small></span
+            ><span class="dots">•••</span>
+          </div>
+        </div>
+      </aside>
+      <main class="main-content">
+        <header class="topbar">
+          <div class="top-brand">
+            <span class="brand-mark logo-frame"
+              ><img src="logo.png.jpg" alt="Logo da loja Conecta Mobile"
+            /></span>
+            <div>
+              <strong>RR Celulares</strong
+              ><small>Celulares & manutenção</small>
+            </div>
+          </div>
+          <div class="breadcrumb">
+            <span> RR Celulares </span><i>/</i
+            ><strong id="pageCrumb">Visão geral</strong>
+          </div>
+          <div class="top-actions">
+            <button class="icon-button" title="Notificações">♧<em></em></button
+            ><button
+              class="outline-button"
+              id="publicStoreButton"
+              data-public-view
+            >
+              ↗ &nbsp;Ver catálogo público</button
+            ><button class="primary-button" id="headerAddButton">
+              ＋ &nbsp;Cadastrar produto
+            </button>
+          </div>
+        </header>
+        <div class="content-wrap">
+          <section class="view active" id="overviewView">
+            <div class="page-heading">
+              <div>
+                <p class="eyebrow">PAINEL DA LOJA</p>
+                <h1>Bom dia, Admin <span>✦</span></h1>
+                <p class="subtitle">
+                  Gerencie celulares, acessórios e serviços de manutenção.
+                </p>
               </div>
-              <div class="text-container">
-                <div class="text-main">CELULARES</div>
-                <div class="text-sub">CONCERTO EM CELULARES E ACESSÓRIOS</div>
+              <div class="date-chip">⌖ &nbsp; Loja no Google Maps</div>
+            </div>
+            <div class="stats-grid">
+              <div class="stat-card accent">
+                <div class="stat-top">
+                  <span>Visualizações do catálogo</span
+                  ><span class="stat-icon">◉</span>
+                </div>
+                <strong>2.847</strong
+                ><small class="positive"
+                  >↗ 18,6% <span>vs. mês anterior</span></small
+                >
+                <div class="sparkline bars">
+                  <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i
+                  ><i></i><i></i><i></i>
+                </div>
               </div>
-              <div class="icon-container" aria-hidden="true">
-                <svg class="icon-svg" viewBox="0 0 130 100" fill="#FFF" xmlns="http://www.w3.org/2000/svg">
-                  <rect x="50" y="5" width="48" height="90" rx="8" fill="none" stroke="#FFF" stroke-width="4"/>
-                  <line x1="66" y1="12" x2="82" y2="12" stroke="#FFF" stroke-width="3" stroke-linecap="round"/><circle cx="60" cy="12" r="1.5"/><circle cx="74" cy="85" r="4"/>
-                  <g transform="translate(30 58)"><circle r="10" fill="none" stroke="#FFF" stroke-width="3"/><circle r="4"/><path d="M-2-15h4v5h-4zm0 25h4v5h-4zM-15-2v4h5v-4zm25 0v4h5v-4z"/><path d="m-10-10 3 3m4 4 3 3m0-10-3 3m-4 4-3 3" stroke="#FFF" stroke-width="3"/></g>
-                  <g transform="translate(42 34)"><circle r="7" fill="none" stroke="#FFF" stroke-width="2.5"/><circle r="2.5"/><path d="M-1.5-11h3v4h-3zm0 18h3v4h-3zM-11-1.5h4v3h-4zm18 0h4v3H7z"/></g>
-                  <g transform="translate(108 52)"><rect x="-5" y="10" width="10" height="24" rx="3"/><rect x="-2" y="-12" width="4" height="22"/><path d="m-3-12 3-6 3 6z"/></g>
-                </svg>
+              <div class="stat-card">
+                <div class="stat-top">
+                  <span>Cliques em produtos</span
+                  ><span class="stat-icon pale">⌁</span>
+                </div>
+                <strong>634</strong
+                ><small class="positive"
+                  >↗ 9,2% <span>vs. mês anterior</span></small
+                >
+                <div class="sparkline line"></div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-top">
+                  <span>Produtos ativos</span
+                  ><span class="stat-icon pale">▦</span>
+                </div>
+                <strong id="activeStat">24</strong
+                ><small class="neutral">3 adicionados este mês</small>
+                <div class="progress"><span></span></div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-top">
+                  <span>Promoções ativas</span
+                  ><span class="stat-icon pale">%</span>
+                </div>
+                <strong id="promoStat">2</strong
+                ><small class="neutral">Ofertas em destaque</small>
+                <div class="event-dots">
+                  <i></i><i></i><i></i><i></i><i></i>
+                </div>
               </div>
             </div>
-          </header>
-          <section class="hero-wrap" id="servicos">
-            <div class="hero" id="hero">
-              <article class="slide">
-                <div class="caption">Reparo Profissional<br />de Tela</div>
-              </article>
-              <article class="slide">
-                <div class="caption">Acessórios<br />Exclusivos</div>
-              </article>
-              <article class="slide">
-                <div class="caption">Orçamento<br />Rápido</div>
-              </article>
-              <article class="slide">
-                <div class="caption">Limpeza<br />Interna</div>
-              </article>
-              <article class="slide">
-                <div class="caption">Capas e<br />Películas</div>
-              </article>
+            <div class="dashboard-grid">
+              <section class="panel catalog-panel">
+                <div class="panel-header">
+                  <div>
+                    <h2>Produtos em destaque</h2>
+                    <p>Os favoritos da sua vitrine</p>
+                  </div>
+                  <button class="text-button" data-view-link="products">
+                    Ver todos <span>→</span>
+                  </button>
+                </div>
+                <div class="featured-products" id="featuredProducts"></div>
+              </section>
+              <section class="panel quick-panel">
+                <div class="panel-header">
+                  <div>
+                    <h2>Ações rápidas</h2>
+                    <p>Atualize sua vitrine em poucos passos</p>
+                  </div>
+                </div>
+                <button class="quick-action" data-modal="product">
+                  <span class="quick-icon peach">＋</span
+                  ><span
+                    ><strong>Adicionar produto</strong
+                    ><small>Inclua um novo item no catálogo</small></span
+                  ><b>→</b></button
+                ><button class="quick-action" data-view-link="promotions">
+                  <span class="quick-icon yellow">%</span
+                  ><span
+                    ><strong>Adicionar promoção</strong
+                    ><small>Escolha um produto para uma oferta</small></span
+                  ><b>→</b>
+                </button>
+              </section>
             </div>
-            <button
-              class="hero-control previous"
-              onclick="prevSlide()"
-              aria-label="Slide anterior"
-            >
-              &#10094;
-            </button>
-            <button
-              class="hero-control"
-              onclick="nextSlide()"
-              aria-label="Próximo slide"
-            >
-              &gt;
-            </button>
-            <div class="dots">
+            <section class="panel banner-panel">
+              <div class="banner-carousel" id="bannerCarousel">
+                <div id="bannerSlides"></div>
+                <button
+                  class="carousel-arrow previous"
+                  id="bannerPrevious"
+                  aria-label="Banner anterior"
+                >
+                  ‹</button
+                ><button
+                  class="carousel-arrow next"
+                  id="bannerNext"
+                  aria-label="Próximo banner"
+                >
+                  ›
+                </button>
+                <div
+                  class="carousel-dots"
+                  id="carouselDots"
+                  aria-label="Selecionar banner"
+                ></div>
+                <div class="banner-meta">
+                  <span>Exibido no catálogo público</span
+                  ><strong>Atualização automática</strong>
+                </div>
+              </div>
+              <div class="banner-manager">
+                <div>
+                  <strong>Meus banners</strong
+                  ><small
+                    >O primeiro banner é fixo. Adicione quantos quiser.</small
+                  >
+                </div>
+                <button class="primary-button" data-modal="banner">
+                  ＋ Adicionar banner
+                </button>
+                <div class="banner-manager-list" id="bannerManagerList"></div>
+              </div>
+            </section>
+          </section>
+          <section class="view" id="productsView">
+            <div class="page-heading compact">
+              <div>
+                <p class="eyebrow">CATÁLOGO DA LOJA</p>
+                <h1>Produtos e serviços</h1>
+                <p class="subtitle">
+                  Cadastre celulares, acessórios e serviços de manutenção.
+                </p>
+              </div>
+              <button class="primary-button" data-modal="product">
+                ＋ &nbsp;Cadastrar produto
+              </button>
+            </div>
+            <div class="toolbar">
+              <div class="search-box">
+                ⌕<input
+                  id="productSearch"
+                  placeholder="Buscar produto ou serviço..."
+                />
+              </div>
+              <select id="categoryFilter">
+                <option value="all">Todas as categorias</option>
+                <option>Celulares</option>
+                <option>Acessórios</option>
+                <option>Manutenção</option>
+              </select>
+            </div>
+            <div class="product-grid" id="productGrid"></div>
+          </section>
+          <section class="view" id="promotionsView">
+            <div class="page-heading compact">
+              <div>
+                <p class="eyebrow">DESTAQUES</p>
+                <h1>Promoções</h1>
+                <p class="subtitle">
+                  Crie ofertas que merecem aparecer primeiro.
+                </p>
+              </div>
+              <button class="primary-button" data-modal="promotion">
+                ＋ &nbsp;Nova promoção
+              </button>
+            </div>
+            <div class="promotion-list" id="promotionList"></div>
+          </section>
+          <section class="view" id="settingsView">
+            <div class="page-heading compact">
+              <div>
+                <p class="eyebrow">IDENTIDADE DA LOJA</p>
+                <h1>Configurações</h1>
+                <p class="subtitle">Atualize contato, localização e redes sociais.</p>
+              </div>
+            </div>
+            <form class="settings-panel panel" id="settingsForm">
+              <label>Endereço<input name="address" placeholder="Rua, número, bairro e cidade"></label>
+              <label>Link da localização<input name="mapLink" type="url" placeholder="https://maps.google.com/... "></label>
+              <label>Telefone<input name="phone" placeholder="(31) 99596-1377"></label>
+              <label>Instagram<input name="instagram" placeholder="https://instagram.com/sua-loja"></label>
+              <label>Facebook<input name="facebook" placeholder="https://facebook.com/sua-loja"></label>
+              <button class="primary-button" type="submit">Salvar configurações <span>→</span></button>
+            </form>
+            <div class="panel category-settings">
+              <div class="panel-header"><div><h2>Categorias</h2><p>Crie categorias para organizar os produtos.</p></div></div>
+              <form class="category-form" id="categoryForm"><input name="category" placeholder="Nova categoria"><button class="primary-button" type="submit">＋ Adicionar</button></form>
+              <div class="category-list" id="categoryList"></div>
+            </div>
+          </section>
+          <section class="view client-view" id="clientView">
+            <div class="client-header">
+              <div class="client-logo">
+                <span class="brand-mark logo-frame"
+                  ><img src="logo.png.jpg" alt="Logo da loja RR Celulares"
+                /></span>
+                <div>
+                  <strong>RR Celulares</strong
+                  ><small>Celulares & manutenção</small>
+                </div>
+              </div>
+              <button class="client-admin-link" data-view="overview">
+                Área administrativa
+              </button>
+            </div>
+            <div class="client-carousel" id="clientCarousel">
+              <div id="clientBannerSlides"></div>
               <button
-                class="dot active"
-                onclick="goSlide(0)"
-                aria-label="Slide 1"
-              ></button
+                class="client-carousel-arrow previous"
+                id="clientBannerPrevious"
+                aria-label="Banner anterior"
+              >
+                ‹</button
               ><button
-                class="dot"
-                onclick="goSlide(1)"
-                aria-label="Slide 2"
-              ></button
-              ><button
-                class="dot"
-                onclick="goSlide(2)"
-                aria-label="Slide 3"
-              ></button>
+                class="client-carousel-arrow next"
+                id="clientBannerNext"
+                aria-label="Próximo banner"
+              >
+                ›
+              </button>
+              <div class="client-carousel-dots" id="clientBannerDots"></div>
+            </div>
+            <div class="client-toolbar">
+              <div>
+                <span class="eyebrow">CATÁLOGO ONLINE</span>
+                <h2>Encontre o que precisa</h2>
+                <p>Produtos e serviços de confiança para o seu celular.</p>
+              </div>
+              <div class="client-search">
+                ⌕<input
+                  id="clientSearch"
+                  placeholder="Buscar produto ou serviço..."
+                />
+              </div>
+            </div>
+            <div class="client-categories">
+              <button class="category-chip active" data-client-category="all">
+                Todos</button
+              ><button class="category-chip" data-client-category="Celulares">
+                Celulares</button
+              ><button class="category-chip" data-client-category="Acessórios">
+                Acessórios</button
+              ><button class="category-chip" data-client-category="Manutenção">
+                Manutenção
+              </button>
+            </div>
+            <div class="client-product-grid" id="clientProductGrid"></div>
+            <div class="client-contact">
+              <strong>Precisa de ajuda?</strong
+              ><span
+                >Fale com a Conecta Mobile pelo WhatsApp ou visite nossa
+                loja.</span
+              ><a href="tel:+5511998765432">☎ (11) 99876-5432</a
+              ><button class="client-map-button" id="clientMapButton">
+                ⌖ Como chegar
+              </button>
             </div>
           </section>
-          <section class="content" id="loja">
-            <h2 class="section-title">PRODUTOS DESTAQUE</h2>
-            <div class="products">
-              <article class="card">
-                <img
-                  class="product-image"
-                  src="https://images.unsplash.com/photo-1609592424634-7e3b8c7d3c19?auto=format&fit=crop&w=300&q=80"
-                  alt="Cabos para celular"
-                />
-                <div class="title">Cabo para celular</div>
-                <div class="price">R$ 40,00</div>
-              </article>
-              <article class="card">
-                <img
-                  class="product-image"
-                  src="https://images.unsplash.com/photo-1603313011108-4e0a2f39c22d?auto=format&fit=crop&w=300&q=80"
-                  alt="Capinha"
-                />
-                <div class="title">Cases e capinhas</div>
-                <div class="price">R$ 39,90</div>
-              </article>
-              <article class="card">
-                <img
-                  class="product-image"
-                  src="https://images.unsplash.com/photo-1556656793-08538906a9f8?auto=format&fit=crop&w=300&q=80"
-                  alt="Capas coloridas"
-                />
-                <div class="title">Capas premium</div>
-                <div class="price">R$ 50,00</div>
-              </article>
-              <article class="card">
-                <img
-                  class="product-image"
-                  src="https://images.unsplash.com/photo-1583863788434-e58a36330cf0?auto=format&fit=crop&w=300&q=80"
-                  alt="Carregador"
-                />
-                <div class="title">Carregador rápido</div>
-                <div class="price">R$ 49,90</div>
-              </article>
-              <article class="card">
-                <img
-                  class="product-image"
-                  src="https://images.unsplash.com/photo-1591290619762-c588f7f8c9a3?auto=format&fit=crop&w=300&q=80"
-                  alt="Cabo USB"
-                />
-                <div class="title">Cabo Lightning</div>
-                <div class="price">R$ 49,90</div>
-              </article>
-              <article class="card">
-                <img
-                  class="product-image"
-                  src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?auto=format&fit=crop&w=300&q=80"
-                  alt="Cabo de conexão"
-                />
-                <div class="title">Cabo de conexão</div>
-                <div class="price">R$ 25,00</div>
-              </article>
-            </div>
-            <div class="brands" aria-label="Marcas">
-              <span class="brand">mi</span><span class="brand">MOTOROLA</span
-              ><span class="brand">LG</span><span class="brand apple">●</span
-              ><span class="brand">ANDROID</span
-              ><span class="brand samsung">SAMSUNG</span
-              ><span class="brand">ASUS</span><span class="brand">realme</span>
-            </div>
-          </section>
-          <footer id="contato">
-            <div>
-              <h4>Contato</h4>
-              <p>☎ (31) 99596-1377</p>
-              <p>✉ www.celulares.com.br</p>
-            </div>
-            <div>
-              <h4>Contatos</h4>
-              <p><a href="tel:+5531995961377">Fale conosco</a></p>
-              <a class="whatsapp-link" href="https://wa.me/5531995961377" target="_blank" rel="noreferrer" aria-label="Falar pelo WhatsApp">
-                <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2a9.8 9.8 0 0 0-8.48 14.72L2 22l5.43-1.48A9.8 9.8 0 1 0 12 2Zm0 17.9a8.05 8.05 0 0 1-4.1-1.12l-.3-.18-3.22.88.86-3.14-.2-.32A8.05 8.05 0 1 1 12 19.9Zm4.43-5.98c-.24-.12-1.43-.7-1.65-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1-.37-1.9-1.18-.7-.62-1.18-1.38-1.32-1.62-.14-.24-.01-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.47-.4-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.68 2.57 4.07 3.6.57.25 1.01.4 1.36.52.57.18 1.09.16 1.5.1.46-.07 1.43-.58 1.63-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z"/>
-                </svg>
-                WhatsApp
-              </a>
-              <p><a href="mailto:contato@celulares.com.br">E-mail</a></p>
-            </div>
-            <div>
-              <h4>Endereço</h4>
-              <p>Rua Eduardo Cozac, 119</p>
-              <p>Loja B, Centro de Sarzedo</p>
-            </div>
-            <div>
-              <h4>Site Map</h4>
-              <p><a href="#inicio">Home</a></p>
-              <p><a href="#servicos">Serviços</a></p>
-              <p><a href="index.html">Área administrativa</a></p>
-            </div>
-          </footer>
-        </main>
+        </div>
+      </main>
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <span class="brand-mark logo-frame"
+            ><img src="logo.png.jpg" alt="Logo da loja RR Celulares"
+          /></span>
+          <div>
+            <strong> RR Celulares</strong
+            ><small>Celulares, acessórios e manutenção</small>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-label">FALE COM A LOJA</span
+          ><a id="footerPhone" href="tel:+5531995961377">☎ (31) 99596-1377</a
+          ><a href="mailto:contato@conectamobile.com.br"
+            >✉ contato@conectamobile.com.br</a
+          >
+          <a id="footerInstagram" target="_blank" rel="noreferrer"></a>
+          <a id="footerFacebook" target="_blank" rel="noreferrer"></a>
+        </div>
+        <div class="footer-contact">
+          <span class="footer-label">ENDEREÇO</span
+          ><span id="footerAddress">Rua Eduardo Cozac, 119, Loja B, Centro de Sarzedo</span
+          ><a id="footerMapLink"
+            href="https://www.google.com/maps/search/?api=1&query=Rua+Eduardo+Cozac+119+Sarzedo"
+            target="_blank"
+            rel="noreferrer"
+            >⌖ Abrir no Google Maps</a
+          >
+        </div>
+        <div class="footer-hours">
+          <span class="footer-label">HORÁRIO</span
+          ><span>Seg a sex · 9h às 18h</span><span>Sábados · 9h às 13h</span>
+        </div>
+      </footer>
+    </div>
+    <div class="login-backdrop open" id="loginBackdrop">
+      <form class="login-card" id="loginForm">
+        <p class="eyebrow">ÁREA ADMINISTRATIVA</p>
+        <h1>Acesso ao painel</h1>
+        <p class="subtitle">Entre para gerenciar seu catálogo.</p>
+        <label>Usuário<input name="username" autocomplete="username" value="admin"></label>
+        <label>Senha<input name="password" type="password" autocomplete="current-password" placeholder="admin123"></label>
+        <button class="primary-button full" type="submit">Entrar <span>→</span></button>
+        <button class="login-link" id="forgotAccessButton" type="button">Esqueci meu acesso</button>
+        <small class="login-hint">Acesso local protegido neste navegador.</small>
+      </form>
+    </div>
+    <div class="login-backdrop" id="recoveryBackdrop">
+      <form class="login-card" id="recoveryForm">
+        <button class="login-close" id="recoveryClose" type="button" aria-label="Fechar">×</button>
+        <p class="eyebrow">RECUPERAÇÃO DE ACESSO</p>
+        <h1>Redefinir acesso</h1>
+        <p class="subtitle">Informe o e-mail cadastrado para criar um novo usuário e senha.</p>
+        <label>E-mail<input name="email" type="email" required placeholder="admin@exemplo.com"></label>
+        <div class="recovery-fields" id="recoveryFields" hidden>
+          <label>Novo usuário<input name="newUsername" autocomplete="username" placeholder="novo usuário"></label>
+          <label>Nova senha<input name="newPassword" type="password" autocomplete="new-password" placeholder="nova senha"></label>
+        </div>
+        <button class="primary-button full" type="submit">Continuar <span>→</span></button>
+        <button class="login-link" id="backToLoginButton" type="button">Voltar para o login</button>
+      </form>
+    </div>
+    <div class="modal-backdrop" id="modalBackdrop">
+      <div class="modal" role="dialog" aria-modal="true">
+        <button class="modal-close" id="modalClose">×</button>
+        <p class="eyebrow" id="modalEyebrow">NOVO CADASTRO</p>
+        <h2 id="modalTitle">Adicionar produto</h2>
+        <p class="modal-subtitle" id="modalSubtitle">
+          Deixe sua vitrine sempre atualizada.
+        </p>
+        <form id="catalogForm">
+          <div class="form-fields" id="formFields"></div>
+          <button class="primary-button full" type="submit">
+            Salvar cadastro <span>→</span>
+          </button>
+        </form>
       </div>
     </div>
-    <nav class="floating-actions" aria-label="Ações rápidas de contato">
-      <a class="floating-action whatsapp" href="https://wa.me/5531995961377" target="_blank" rel="noreferrer" title="WhatsApp" aria-label="WhatsApp">✆</a>
-      <a class="floating-action phone" href="tel:+5531995961377" title="Ligar" aria-label="Ligar">☎</a>
-      <a class="floating-action location" href="https://www.google.com/maps/search/?api=1&query=Rua+Eduardo+Cozac+119+Sarzedo" target="_blank" rel="noreferrer" title="Localização" aria-label="Localização">⌖</a>
-    </nav>
-    <div class="toast" id="toast"></div>
-    <script>
-      let slide = 0;
-      const hero = document.getElementById("hero"),
-        dots = document.querySelectorAll(".dot");
-      function getVisibleSlides() {
-        if (window.innerWidth <= 480) return 1;
-        if (window.innerWidth <= 768) return 2;
-        return 3;
-      }
-      function getMaxSlide() {
-        return Math.max(0, hero.children.length - getVisibleSlides());
-      }
-      function goSlide(n) {
-        slide = Math.max(0, Math.min(n, getMaxSlide()));
-        const gap = window.innerWidth <= 420 ? 12 : 20;
-        const cardWidth = hero.children[0].getBoundingClientRect().width;
-        hero.style.transform = `translateX(-${slide * (cardWidth + gap)}px)`;
-        dots.forEach((dot, i) => dot.classList.toggle("active", i === slide));
-      }
-      function nextSlide() {
-        goSlide(slide >= getMaxSlide() ? 0 : slide + 1);
-      }
-      function prevSlide() {
-        goSlide(slide <= 0 ? getMaxSlide() : slide - 1);
-      }
-      function escapeHtml(value) {
-        return String(value || "").replace(/[&<>'"]/g, (character) => ({
-          "&": "&amp;",
-          "<": "&lt;",
-          ">": "&gt;",
-          "'": "&#39;",
-          '"': "&quot;",
-        })[character]);
-      }
-      function syncCatalog() {
-        const storedProducts = JSON.parse(localStorage.getItem("casaAuroraProducts") || "null");
-        const productGrid = document.querySelector(".products");
-        if (storedProducts && productGrid) {
-          productGrid.innerHTML = storedProducts.map((product) => `
-            <article class="card">
-              ${product.image ? `<img class="product-image" src="${escapeHtml(product.image)}" alt="${escapeHtml(product.name || "Produto")}">` : '<div class="product-image"></div>'}
-              <div class="title">${escapeHtml(product.name || "Produto")}</div>
-              <div class="price">${escapeHtml(product.promotionPrice || product.price || "Consulte")}</div>
-              ${product.description ? `<p class="catalog-description">${escapeHtml(product.description)}</p>` : ""}
-            </article>`).join("");
-        }
-        const settings = JSON.parse(localStorage.getItem("casaAuroraSettings") || "null");
-        if (!settings) return;
-        const phone = settings.phone || "";
-        const address = settings.address || "";
-        const contact = document.querySelector("footer > div:first-child");
-        const addressBlock = document.querySelector("footer > div:nth-child(3)");
-        if (contact && phone) contact.innerHTML = `<h4>Contato</h4><p>☎ ${escapeHtml(phone)}</p><p>✉ contato@celulares.com.br</p>`;
-        if (addressBlock && address) addressBlock.innerHTML = `<h4>Endereço</h4><p>${escapeHtml(address)}</p>${settings.mapLink ? `<p><a href="${escapeHtml(settings.mapLink)}" target="_blank" rel="noreferrer">Abrir localização</a></p>` : ""}`;
-      }
-      function syncBanners() {
-        const storedBanners = JSON.parse(localStorage.getItem("casaAuroraBanners") || "null");
-        const hero = document.getElementById("hero");
-        if (!storedBanners || !storedBanners.length || !hero) return;
-        hero.innerHTML = storedBanners.map((banner) => `
-          <article class="slide" style="background-image:linear-gradient(90deg,rgba(32,41,50,.18),rgba(32,41,50,.38)),url('${escapeHtml(banner.image || "")}')">
-            <div class="caption">${escapeHtml(banner.title || banner.text || "Destaque da loja")}</div>
-          </article>`).join("");
-        slide = 0;
-        goSlide(0);
-      }
-      setInterval(nextSlide, 5000);
-      window.addEventListener("resize", () => goSlide(slide));
-      syncCatalog();
-      syncBanners();
-      const mobileMenuToggle = document.getElementById("mobileMenuToggle");
-      const mobileAside = document.querySelector("aside");
-      mobileMenuToggle.addEventListener("click", () => {
-        const isOpen = mobileAside.classList.toggle("nav-open");
-        mobileMenuToggle.setAttribute("aria-expanded", String(isOpen));
-      });
-      function cart(name) {
-        const toast = document.getElementById("toast");
-        toast.textContent = `${name} adicionado ao carrinho.`;
-        toast.classList.add("show");
-        setTimeout(() => toast.classList.remove("show"), 2200);
-      }
-      document.querySelectorAll("nav a").forEach((a) =>
-        a.addEventListener("click", () => {
-          document
-            .querySelectorAll("nav a")
-            .forEach((x) => x.classList.remove("active"));
-          a.classList.add("active");
-        }),
-      );
-    </script>
+    <div class="toast" id="toast">Cadastro salvo com sucesso.</div>
+    <script src="app.js"></script>
   </body>
 </html>

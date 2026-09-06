@@ -2719,13 +2719,16 @@ body {
   line-height: 1;
   cursor: pointer;
 }
+.mobile-menu-label {
+  display: none;
+}
 .mobile-navigation {
   display: contents;
 }
 .mobile-public-link {
   display: none;
 }
-@media (max-width: 640px) {
+@media (max-width: 800px) {
   body {
     overflow-x: hidden;
   }
@@ -2750,9 +2753,14 @@ body {
     align-items: center;
     justify-content: space-between;
   }
+  .mobile-menu-label {
+    display: block;
+    color: #2a372e;
+    font: 800 15px "DM Sans";
+  }
   .brand > span:last-child,
   .brand .brand-mark {
-    display: inline-flex;
+    display: none;
   }
   .brand .brand-mark {
     width: 42px;
